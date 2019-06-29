@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1561773873 source:c:\users\admin\desktop\projects c++\advanced calculator\main.cpp
+	<iostream>
+	"Vector3.cpp"
+
+1561773958 c:\users\admin\desktop\projects c++\advanced calculator\vector3.cpp
+	<iostream>
+	<math.h>
+
+1561774050 source:c:\users\admin\desktop\projects c++\advanced calculator\vector3.cpp
+	<iostream>
+	<math.h>
+
