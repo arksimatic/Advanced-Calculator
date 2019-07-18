@@ -11,9 +11,11 @@
 	<iostream>
 	<math.h>
 
-1561901270 source:c:\users\admin\desktop\projects c++\advanced calculator\advanced-calculator\main.cpp
+1563470709 source:c:\users\admin\desktop\projects c++\advanced calculator\advanced-calculator\main.cpp
 	<iostream>
 	"Vector3.cpp"
+	"Vector2.cpp"
+	"Matrix.cpp"
 
 1561901270 c:\users\admin\desktop\projects c++\advanced calculator\advanced-calculator\vector3.cpp
 	<iostream>
@@ -26,4 +28,18 @@
 1562696221 source:c:\users\admin\desktop\projects c++\advanced calculator\advanced-calculator\vector2.cpp
 	<iostream>
 	<math.h>
+
+1562696221 c:\users\admin\desktop\projects c++\advanced calculator\advanced-calculator\vector2.cpp
+	<iostream>
+	<math.h>
+
+1563470258 source:c:\users\admin\desktop\projects c++\advanced calculator\advanced-calculator\matrix.cpp
+	<iostream>
+	<math.h>
+	<vector>
+
+1563470746 c:\users\admin\desktop\projects c++\advanced calculator\advanced-calculator\matrix.cpp
+	<iostream>
+	<math.h>
+	<vector>
 
