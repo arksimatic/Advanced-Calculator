@@ -11,7 +11,7 @@ template<typename T> Matrix<T> operator * (const Matrix<T>&, const Matrix<T>&);
 template<typename T> T Determinant(const Matrix<T>&);
 template<typename T> int LongestNumber(const Matrix<T>&);
 template<typename T> int SizeOfNumber(const T&);
-template<typename T> void Prind(const Matrix<T>&);
+template<typename T> Matrix<T> DownTriangular(const Matrix<T>&);
 
 template <typename T> class Matrix
 {
@@ -26,7 +26,7 @@ public:
     friend T Determinant(const Matrix<T>&);
     friend int LongestNumber(const Matrix<T>&);
     friend int SizeOfNumber(const T&);
-    friend void Prind<T>(const Matrix<T>&);
+    friend Matrix<T> DownTriangular(const Matrix<T>&);
 
     Matrix(std::vector<T> a, int r, int c)  //parametrized constructor
     {
@@ -34,7 +34,7 @@ public:
         this->r = r;
         this->c = c;
         std::cout<<"Creating: "<<std::endl;
-        this->SmartPrint();
+        this->Print();
     }
 
     Matrix(const Matrix &M) //coping constructor
@@ -49,7 +49,7 @@ public:
     virtual ~Matrix() //destructor
     {
         std::cout<<"Deleting: "<<std::endl;
-        this->SmartPrint();
+        this->Print();
     }
 
 
@@ -258,4 +258,25 @@ template<typename T> int SizeOfNumber(const T& t) //for non-decimal numbers
         number/=10;
     }
     return numberSize;
+}
+
+template<typename T> Matrix<T> DownTriangular(const Matrix<T>& M)
+{
+
+    std::vector<T> v = M.arr;
+    int r = M.r;
+    int c = M.c;
+
+    for(int i=0; i<r; i++)
+    {
+        for(int j=i+1; j<r; j++)
+        {
+            T multiplier = v[i*c+i]/v[j*c+i];
+            for(int k=0; k<c; k++)
+            {
+                v[j*c+k]=v[j*c+k]*multiplier-v[i*c+k];
+            }
+        }
+    }
+    return Matrix<T>(v, r, c);
 }
