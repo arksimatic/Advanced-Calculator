@@ -24,6 +24,7 @@ int main()
 
     //int det = Determinant<int>(a);
     //cout<<"Determinant="<<det<<endl;
-    Matrix<double> x = DownTriangular<double>(a);
+    Matrix<double> x = TopTriangular<double>(a);
+    Matrix<double> y = DownTriangular<double>(x);
     return 0;
 }

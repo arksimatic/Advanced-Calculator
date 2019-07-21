@@ -12,6 +12,7 @@ template<typename T> T Determinant(const Matrix<T>&);
 template<typename T> int LongestNumber(const Matrix<T>&);
 template<typename T> int SizeOfNumber(const T&);
 template<typename T> Matrix<T> DownTriangular(const Matrix<T>&);
+template<typename T> Matrix<T> TopTriangular(const Matrix<T>&);
 
 template <typename T> class Matrix
 {
@@ -27,6 +28,7 @@ public:
     friend int LongestNumber(const Matrix<T>&);
     friend int SizeOfNumber(const T&);
     friend Matrix<T> DownTriangular(const Matrix<T>&);
+    friend Matrix<T> TopTriangular(const Matrix<T>&);
 
     Matrix(std::vector<T> a, int r, int c)  //parametrized constructor
     {
@@ -270,6 +272,27 @@ template<typename T> Matrix<T> DownTriangular(const Matrix<T>& M)
     for(int i=0; i<r; i++)
     {
         for(int j=i+1; j<r; j++)
+        {
+            T multiplier = v[i*c+i]/v[j*c+i];
+            for(int k=0; k<c; k++)
+            {
+                v[j*c+k]=v[j*c+k]*multiplier-v[i*c+k];
+            }
+        }
+    }
+    return Matrix<T>(v, r, c);
+}
+
+template<typename T> Matrix<T> TopTriangular(const Matrix<T>& M)
+{
+
+    std::vector<T> v = M.arr;
+    int r = M.r;
+    int c = M.c;
+
+    for(int i=r-1; i>=0; i--)
+    {
+        for(int j=i-1; j>=0; j--)
         {
             T multiplier = v[i*c+i]/v[j*c+i];
             for(int k=0; k<c; k++)
